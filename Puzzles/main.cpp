@@ -11,12 +11,14 @@ int main(){
             int in; cin >> in; p.push_back(in); 
         }
         sort(p.begin(), p.end());
+        
+        // Adopting a generic method instead of a specific one to just solve this problem
         vector<int> d;
-        for(i=0; i<m-2; i++){
+        for(i=0; i<m-1; i++){
             d.push_back(p[i+1] - p[i]);
         }
         vector<int> dsum;
-        for(i=0; i<d.size(); i++){
+        for(i=0; i<=d.size()-n+1; i++){
             dsum.push_back(accumulate(d.begin()+i, d.begin()+i+n-1, 0));
         }
         cout << *min_element(dsum.begin(), dsum.end());
