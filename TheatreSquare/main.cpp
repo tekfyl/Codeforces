@@ -4,9 +4,9 @@ using namespace std;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-        int n,m; double a;
+        double a,n,m;
         cin >> n >> m >> a;
-        cout << ceil(n/a) * ceil(m/a);
+        cout << (long long)ceil(n/a) * (long long)ceil(m/a);
     return 0;
 }
 
