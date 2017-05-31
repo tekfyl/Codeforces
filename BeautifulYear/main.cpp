@@ -9,8 +9,7 @@ int main(){
         n++;
         int a,s,d,f;
         while(1){
-            a=n%10; s=n%100-a; d=n%1000-a-s; f=n-a-s-d;
-            s/=10; d/=100; f/=1000;
+            a=n%10; s=n/10%10; d=n/100%10; f/=1000;
             if(a == s || a == d || a == f || s == d || s == f || d == f) {  n++; }
             else { cout << n; break; }
         }
