@@ -13,9 +13,9 @@ int main(){
         if(n==1){
             cout << s; return 0;
         }
-        s[0] =  s[0] >= 'a' ? s[0]-32 : s[0];
-        for(i=1; i<s.size(); i++){
-            s[i] = s[i] <= 'Z' ? s[i]+32 : s[i];
+
+        for(i=0; i<s.size(); i++){
+            s[i] = s[i] <= 'Z' ? s[i]+32 : s[i]-32;
         }
         cout << s;
     return 0;
