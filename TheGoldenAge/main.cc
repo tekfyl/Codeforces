@@ -26,23 +26,20 @@ int main(){
             //cout << n << endl;
             n *= y;
         }
-        //rr.PB(l);
+        rr.PB(l-1);
         for(auto c:xx){
             for(auto v:yy){
-                if(c+v >= l && c+v <=r){ rr.PB(c+v);
-                //if(c+v > r) goto diff;
-                //cout << c+v << endl; 
+                if(c+v >= l && c+v <=r){ 
+                    rr.PB(c+v);
                 }
             }
         }
         sort(all(rr));
-        dd.PB(rr.front()-l);
-        for(i=1; i<rr.size(); i++){
-            dd.PB(rr[i]-rr[i-1]-1);
+        rr.PB(r+1);
+        LL int res=0;
+        for(int j = 0; j < rr.size()-1; j++){
+            res = max(res, rr[j+1] - rr[j] -1);
         }
-        //if(r != pow(10,18))  dd.PB(r-rr.back());
-        sort(all(dd));
-        cout << dd.back();
+        cout << res;
     return 0;
 }
-
