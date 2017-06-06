@@ -36,6 +36,7 @@ int main(){
         }
         sort(all(rr));
         rr.PB(r+1);
+
         LL int res=0;
         for(int j = 0; j < rr.size()-1; j++){
             res = max(res, rr[j+1] - rr[j] -1);
