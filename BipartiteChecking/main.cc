@@ -10,60 +10,43 @@
 
 using namespace std;
 
-void checkBipartite(vector< vi > g, int s){
-    // s - starting node - current element - front element of queue
-        // q - bfs queue
-        // color - -1 for not visited, 0 for in queue, 1 for removed queue
-        // level - level on every element
-
-        int i, l=0, m=1;
-        vi q, color(g.size(),-1), level(g.size(),-1), bfselements(g.size(),-1); q.pb(s);
-                color[s] = 0;
-                level[s] = l;
-                //cout << level[s] << " "  << s << " ";
-                bfselements[m++] = s; 
-        while(q.size() != 0){
-                s = q.front();
-                q.erase(q.begin());
-                l++;
-                for(i=0; i<g[s].size(); i++){
-                    if(color[g[s][i]] == -1){
-                        color[g[s][i]] = 0;
-                        level[g[s][i]] = l;
-                        //cout << level[g[s][i]] << " " << g[s][i] << " ";
-                        bfselements[m++] = g[s][i];
-                        q.pb(g[s][i]);
-                    }
-                    else{
-                        if(level[s] == level[g[s][i]]){
-                            cout << "NO" << endl; return;
-                        }
-                    }
-                }
-        }
-
-    cout << "YES" << endl;
-}
+bool is_bipartite(vector< vector<int> > &graph) {
+    int n = graph.size();
+    vector<int> side(n, 0);
+    queue<int> q;
+    side[0] = 1; // left
+    q.push(0);
+    while (!q.empty()) {
+        int node = q.front();
+        q.pop();
+        for (auto &neighbour : graph[node]) {
+            if (!side[neighbour]) {
+                side[neighbour] = - side[node];
+                q.push(neighbour); 
+            } else if (side[neighbour] == side[node]) {
+                return false; 
+            }
+        } 
+    }
+    return true; 
+} 
 
 int main(){
     std::ios_base::sync_with_stdio(false);
         int i,n,q;
         cin >> n >> q;
-        vector< vi > g(n+1);
+        vector< vi > g(n);
         rep(i,q){
-            int v1,v2; cin >> v1 >> v2;
+            int v1,v2; cin >> v1 >> v2; v1--; v2--;
             if(find(all(g[v1]), v2) == g[v1].end() && find(all(g[v2]), v1) == g[v2].end()){
                 g[v1].pb(v2);
                 g[v2].pb(v1);
-                cout << "if" << endl;
-                checkBipartite(g,v1);
             }
             else{
                 g[v1].erase(find(all(g[v1]), v2));
                 g[v2].erase(find(all(g[v2]), v1));
-                cout << "else" << endl;
-                checkBipartite(g, g[1].front());
             }
+            cout << (is_bipartite(g) ? "YES" : "NO") << endl;
         }
     return 0;
 }
