@@ -12,21 +12,21 @@ using namespace std;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-        int i,flag = 0;
-        //cin >> n;
-        string in, s="";
-        cin >> in;
-        for(i=0; i<in.size()-2; ){
-            if(in[i] == 'W' && in[i+1] == 'U' && in[i+2] == 'B'){
-                if(flag == 0) { s += " "; flag = 1;}
-                i += 3;
-            }
-            else{
-                s += in[i]; i++; flag = 0;
-            }
+    vector<char> str;
+    string s; int flag=0;
+    cin >> s;
+    int i = 0;
+    while(i<s.size()){
+        if(s[i] == 'W' && s[i+1] == 'U' && s[i+2] == 'B'){
+           if(flag == 0) str.PB(32); i = i+3; flag = 1;
         }
-        s.erase(0); s.erase(s.end());
-        cout << s;
+        else{
+            str.PB(s[i]); i++; flag = 0;
+        }
+    }
+    if(str.front() ==  32) str.erase(str.begin());
+    if(str.back() == 32)  str.erase(str.end()-1);
+    for(auto c:str) cout << c;
     return 0;
 }
 
