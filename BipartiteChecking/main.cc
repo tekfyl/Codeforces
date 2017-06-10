@@ -10,26 +10,33 @@
 
 using namespace std;
 
-bool is_bipartite(vector< vector<int> > &graph) {
-    int n = graph.size();
-    vector<int> side(n, 0);
-    queue<int> q;
-    side[0] = 1; // left
-    q.push(0);
-    while (!q.empty()) {
-        int node = q.front();
-        q.pop();
-        for (auto &neighbour : graph[node]) {
-            if (!side[neighbour]) {
-                side[neighbour] = - side[node];
-                q.push(neighbour); 
-            } else if (side[neighbour] == side[node]) {
-                return false; 
+int is_bipartite(vector< vector<int> > g) {
+    int n = g.size(), count=0;
+    vi v(n,0);
+    rep(i,n){
+        if(v[i] == 0){
+            count++;
+            cout << count << endl;
+            v[i] = 1;
+            vi q; q.pb(i);
+            while(!q.empty()){
+                q.erase(q.begin());
+                for(auto adj:g[q.front()]){
+                    if(v[adj] == 0){
+                        v[adj] = -v[q.front()];
+                        q.pb(adj);
+                    }
+                    else{
+                        if(v[q.front()] == v[adj]){
+                            return 0;
+                        }
+                    }
+                }
             }
-        } 
+        }
     }
-    return true; 
-} 
+    return 1;
+}
 
 int main(){
     std::ios_base::sync_with_stdio(false);
