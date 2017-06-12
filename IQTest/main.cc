@@ -23,10 +23,10 @@ int main(){
         cin >> n;
         rep(i,n){
             cin >> in; v.pb(in);
-            in%2 == 0 ? even = in : odd = in;
+            in%2 == 0 ? even = i : odd = i;
             if(accumulate(all(v), 0)%2) flag++; 
         }
-            flag <= 1? cout << even : cout << odd;
+            flag <= 1? cout << even+1 : cout << odd+1;
     return 0;
 }
 
