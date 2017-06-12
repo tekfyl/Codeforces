@@ -27,7 +27,7 @@ int main(){
         }
         int sum=0;
         for(auto c:v){
-            sum += count(all(v), c);
+            sum += count(all(b), c);
         }
         cout << sum;
     return 0;
