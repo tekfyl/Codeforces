@@ -12,16 +12,18 @@ using namespace std;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-        int i,n;
+        int i,n,d2,mi; int max = INT_MIN, min = INT_MAX;
         cin >> n;
         vi v;
         REP(i,n){
             int in; cin >> in; v.PB(in);
+            in > max ? max = in : 1;
+            if(in <= min) {  min = in; mi = i+1; d2 = n-(i+1);}
         }
-        if(max_element(all(v))>min_element(all(v)))
-        cout << -2+distance(v.begin(), max_element(all(v))) + distance(min_element(v.rbegin(), v.rend()), v.end());
-        else       
-        cout << -1+distance(v.begin(), max_element(all(v))) + distance(min_element(v.rbegin(), v.rend()), v.end());
-    return 0;
+        int d1 = distance(v.begin(), find(all(v), max));
+        //cout << d1 << d2 << endl;
+        if(d1 >= mi) cout << d1+d2-1;
+        else cout << d1+d2;
+        return 0;
 }
 
