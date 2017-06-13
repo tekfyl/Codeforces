@@ -14,10 +14,12 @@ int main(){
     std::ios_base::sync_with_stdio(false);
         int i,n;
         //cin >> n;
-        int a,b,h; cin >> a >> b;
-        while(a>0){
+        int a,b,h,rem,div; cin >> a >> b;
+            h += a; div = a/b; rem = a%b; 
+        while(div>0){
             h += a;
-            a /= b;
+            a = div + rem;
+            rem = a%b; div = a/b;
         }
         cout << h;
     return 0;
