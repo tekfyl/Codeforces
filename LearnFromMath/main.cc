@@ -15,6 +15,6 @@ int main(){
         int i,n;
         cin >> n;
         (n%2 == 0 ? (cout << 4 << " " << n-4) : (cout << 9 << " " << n-9)); 
-    return 0;
+    return 100;
 }
 
