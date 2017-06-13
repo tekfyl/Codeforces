@@ -12,15 +12,15 @@ using namespace std;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-        int i,n;
-        //cin >> n;
-        int a,b,h,rem,div; cin >> a >> b;
-            h += a; div = a/b; rem = a%b; 
-        while(div>0){
-            h += a;
-            a = div + rem;
-            rem = a%b; div = a/b;
-        }
+        int i,n,a,b,div,rem,h;
+        cin >> a >> b;
+        h = a;
+        while(a >= b){
+        div = a / b;
+        h += div;
+        rem = a % b;
+        a = div + rem;
+      }
         cout << h;
     return 0;
 }
