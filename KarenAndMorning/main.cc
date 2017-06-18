@@ -22,11 +22,12 @@ int n,m,t,v1,v2;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-        string s;
-        cin >> s;
+        //string s;
+        //cin >> s;
         int h=0;
-        h = (s[0]-'0')*10 + s[1] - '0';
-        m = (s[3]-'0')*10 + s[4] - '0';
+        scanf("%d:%d", &h, &m);
+        //h = (s[0]-'0')*10 + s[1] - '0';
+        //m = (s[3]-'0')*10 + s[4] - '0';
         t=0;
         while(h/10 != m%10 || m/10 != h%10){
             t++; m++; 
