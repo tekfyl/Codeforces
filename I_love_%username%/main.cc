@@ -26,8 +26,8 @@ int main(){
         int min=in; int max=in; t=0; 
         rep(i,n-1){
             cin >> in;
-            if(in>max) {max = in; t++;}
-            if(in<min) {min = in; t++;}
+            if(in>max) {max = in, t++;}
+            if(in<min) {min = in, t++;}
         }
         cout << t;
     return 0;
