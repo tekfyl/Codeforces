@@ -29,7 +29,7 @@ int main(){
             i++;
             k += 5*(i+1);
         }
-        cout << i;
+    cout << i;
     return 0;
 }
 
