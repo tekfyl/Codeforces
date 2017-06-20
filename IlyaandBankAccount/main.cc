@@ -23,12 +23,7 @@ int n,m,t,v1,v2;
 int main(){
     std::ios_base::sync_with_stdio(false);
         cin >> n;
-        if(n < 0){
-            int rem = n%10;
-            m = n/100; m*=10; m+=rem;
-            cout << max(n/10, m);
-        }
-        else cout << n;
+        cout << (n < 0 ? max(n/10, (n/100)*10+n%10) : n);
     return 0;
 }
 
