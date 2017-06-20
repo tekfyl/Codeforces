@@ -23,10 +23,7 @@ int n,m,t,v1,v2;
 int main(){
     std::ios_base::sync_with_stdio(false);
         cin >> n >> m; k=0;
-        rep(i,n){
-            cin >> in; 
-            in > m ? k+=2 : k++;
-        }
+        rep(i,n) cin >> in, in > m ? k+=2 : k++;
         cout << k;
     return 0;
 }
