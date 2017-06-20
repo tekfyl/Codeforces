@@ -25,7 +25,7 @@ int main(){
     k=0;
     rep(i,5)    
     cin >> in, k+=in;
-    k%5 == 0? cout << k/5 : cout << -1;
+    (k%5 == 0 && k>0) ? cout << k/5 : cout << -1;
     return 0;
 }
 
