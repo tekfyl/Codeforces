@@ -26,7 +26,7 @@ int main(){
         if(t != 10) rep(i,n) cout << t;
         else {
             if(n == 1) cout << -1;
-            else cout << 1;
+            else {rep(i,n-1) cout << 1; cout << 0;}
         }
     return 0;
 }
