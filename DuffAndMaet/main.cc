@@ -34,8 +34,8 @@ int main(){
         t = INT_MAX;
         rep(i,n){
             cin >> j >> k;
-            ans += j*min(k,t);
             t = min(k,t);
+            ans += j*t;
         }
         cout << ans;
     return 0;
