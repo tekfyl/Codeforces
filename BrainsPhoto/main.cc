@@ -26,7 +26,7 @@ int main(){
         char c;
         rep(i, n*m){
             cin >> c;
-            if(c != 'B' && c != 'W'){ cout << "#Color"; return 0;}
+            if(c != 'B' && c != 'W' && c!= 'G'){ cout << "#Color"; return 0;}
         }
         cout << "#Black&White";
     return 0;
