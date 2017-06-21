@@ -31,14 +31,13 @@ char c; string r;
 int main(){
     std::ios_base::sync_with_stdio(false);
         cin >> c >> r;
-        string s[3] = { "qwertyuiop", 
-                        "asdfghjkl;", 
-                        "zxcvbnm,./"};
+        string s[3] = {"qwertyuiop", "asdfghjkl;", "zxcvbnm,./"};
         for(auto x:r){
             rep(i,3){
-            if(s[i].find(x) != -1) {
-                cout << (c == 'L' ? s[i][s[i].find(x)+1] : s[i][s[i].find(x)-1]);
-            }
+                j=s[i].find(x);
+                if(j != -1) {
+                    cout << (c == 'L' ? s[i][j+1] : s[i][j-1]);
+                }
             }
         }
     return 0;
