@@ -34,7 +34,7 @@ int main(){
         rep(i,s.size()-1){
             if(s[i] == s[i+1]){ 
                 t++; 
-                if(t>6){
+                if(t>5){
                 cout << "YES"; return 0;        
             }
             }
