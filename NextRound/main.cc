@@ -31,20 +31,10 @@ char c; string s;
 int main(){
     std::ios_base::sync_with_stdio(false);
         cin >> n >> k;
-        v.pb(1);
-        rep(i,n){
-            cin >> in; v.pb(in);
-        }
-        if(v[k] == 0){
-            cout  << n - count(all(v), 0);
-        }
-        else {
-            while(v[k] == v[k+1]){
-                k++;
-            }
-            cout << k;
-        }
-
+        v.resize(n); 
+        rep(i,n) cin >> v[i];
+        rep(i,n) if(v[i] >= v[k-1] && v[i]) t++;
+        cout << t;
     return 0;
 }
 
