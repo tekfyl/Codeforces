@@ -31,7 +31,8 @@ char c; string s;
 int main(){
     std::ios_base::sync_with_stdio(false);
         cin >> n >> m;
-        for(i = n/2; i<n+1; i++){
+        //cout << ceil(n/2.0) << endl;
+        for(i = ceil(n/2.0); i<n+1; i++){
             if(i%m == 0){ cout << i; return 0; }
         }
         cout << -1;
