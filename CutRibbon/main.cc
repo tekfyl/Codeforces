@@ -22,17 +22,18 @@ int n,m,t,v1,v2;
 
 int main(){
     std::ios_base::sync_with_stdio(false);
-    int a,b,c;
-    cin >> n >> a >> b >> c; k=0;
-    rep(i,n/a){
-        rep(j,(n-a*i)/b){
-            int r = n - i*a - j*b;
-            if(r%c == 0){
-                k = max(k,i+j+r/c);
+    double a,b;
+    int c;
+    cin >> n >> a >> b >> c; double ans=0;
+    for(i=0; i<=n/a; i++){
+        for(j=0; j<=(n-i*a)/b; j++){
+            t = n - i*a - j*b;
+            if(t%c == 0){
+                ans = max(ans, (double)i+j+t/c);
             }
         }
     }
-    cout << k;
+    cout << ans;
     return 0;
 }
 
