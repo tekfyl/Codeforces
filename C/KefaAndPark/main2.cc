@@ -20,7 +20,7 @@ vi v,q,st;
 int in=0,i=0,j=0,k=0,ans=0;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
-const int N = 2e5+7; vector< vi > g(N); vi vis(N,0); vi cat;
+const int N = 2e5+7; vector< vi > g(N); vi vis(N,0); vi cat(N,0);
 
 void FastIO(){
     ios_base::sync_with_stdio(0);
@@ -44,8 +44,7 @@ void dfs(int s, int cnt){
 int main(){
     FastIO();
         cin >> n >> m;
-        cat.pb(0);
-        rep1(i,n) cin >> in, cat.pb(in);
+        rep1(i,n) cin >> cat[i];
         rep(i,n-1){
             cin >> v1 >> v2;
             g[v1].pb(v2); g[v2].pb(v1);
