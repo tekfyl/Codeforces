@@ -17,7 +17,7 @@
 using namespace std;
 
 vi v,q,st;
-int in=0,i=0,j=0,k=0,ans=0;
+int in=0,i=0,j=0,k=0,ans=1;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
 
