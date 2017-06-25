@@ -33,7 +33,7 @@ int main(){
         cin >> t;
         rep(i,t){
             cin >> n; n = 180-n;
-            cout << (360%n == 0? "YES":"NO");
+            cout << (360%n == 0? "YES":"NO") << endl;
         }
     return 0;
 }
