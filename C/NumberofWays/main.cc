@@ -30,13 +30,13 @@ void FastIO(){
 
 int main(){
     FastIO();
-        cin >> n;
-        rep(i,n) cin >> in, v.pb(in);
+        cin >> n; v.resize(n+10,0);
+        rep(i,n) cin >> in, v[i+1] += in;
         LL sum = accumulate(all(v), 0);
-        if(sum%3 == 0){
-            LL temp=0,first=sum/3, second=2*sum/3;
-            rep(i,n){
-                temp += v[i];
+        if(v[n]%3 == 0){
+            LL temp=0,first=v[n]/3, second=2*v[n]/3;
+            rep1(i,n-1){
+                temp = v[i];
                 if(temp == first) t++;
                 if(temp == second) ans += t;
             }
