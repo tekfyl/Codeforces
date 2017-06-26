@@ -17,7 +17,7 @@
 using namespace std;
 
 vi v,q,st;
-int in=0,i=0,j=0,k=0,ans=0;
+LL in=0,i=0,j=0,k=0,ans=0;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
 const int N = 2e5+7; vector< vi > g(N); vi vis(N,0);
@@ -31,14 +31,14 @@ void FastIO(){
 int main(){
     FastIO();
         cin >> n; v.resize(n+10,0);
-        rep(i,n) cin >> in, v[i+1] += in;
+        rep(i,n) cin >> in, v[i+1] = v[i]+in;
         LL sum = accumulate(all(v), 0);
         if(v[n]%3 == 0){
             LL temp=0,first=v[n]/3, second=2*v[n]/3;
             rep1(i,n-1){
                 temp = v[i];
-                if(temp == first) t++;
                 if(temp == second) ans += t;
+                if(temp == first) t++;
             }
         }
         cout << ans;
