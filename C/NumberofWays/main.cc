@@ -16,7 +16,7 @@
 
 using namespace std;
 
-vi v,q,st;
+vll v,q,st;
 LL in=0,i=0,j=0,k=0,ans=0;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
@@ -32,7 +32,6 @@ int main(){
     FastIO();
         cin >> n; v.resize(n+10,0);
         rep(i,n) cin >> in, v[i+1] = v[i]+in;
-        LL sum = accumulate(all(v), 0);
         if(v[n]%3 == 0){
             LL temp=0,first=v[n]/3, second=2*v[n]/3;
             rep1(i,n-1){
