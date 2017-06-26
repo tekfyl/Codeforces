@@ -33,10 +33,10 @@ int main(){
         cin >> n;
         rep(i,n) cin >> in, v.pb(in);
         rep(i,n){
-            rep(j,n){
+            for(j=i; j<n; j++){
                 st=v;
                 for(k=i; k<=j; k++){
-                    st[i] ^= 1;
+                    st[k] ^= 1;
                 }
                 q.pb(count(all(st), 1));
             }
