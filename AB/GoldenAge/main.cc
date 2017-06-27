@@ -50,8 +50,7 @@ int main(){
             if(sum[i] >= l-1 && sum[i] < r+1){
                 bst = max(bst, sum[i+1]-sum[i]-1);
             }
-        }
-        
+        }        
         cout << bst;
     return 0;
 }
