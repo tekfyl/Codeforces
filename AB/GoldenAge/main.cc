@@ -32,22 +32,26 @@ int main(){
     FastIO();
         LL x,y,l,r;
         cin >> x >> y >> l >> r;
+        
         vll xp, yp;
         LL num1=1, num2=1;
         xp.pb(num1); yp.pb(num2);
-        while(num1<1e18/x) num1*=x, xp.pb(num1);
-        while(num2<1e18/y) num2*=y, yp.pb(num2);
+        while(num1<=r/x) num1*=x, xp.pb(num1);
+        while(num2<=r/y) num2*=y, yp.pb(num2);
         vll sum; sum.pb(l-1); sum.pb(r+1);
+        
         for(auto c:xp)
             for(auto d:yp)
                 sum.pb(c+d);
         sort(all(sum));
+        
         LL bst=0;
         rep(i,sum.size()-1){
-            if(sum[i] > l-1 && sum[i] < r+1){
+            if(sum[i] >= l-1 && sum[i] < r+1){
                 bst = max(bst, sum[i+1]-sum[i]-1);
             }
         }
+        
         cout << bst;
     return 0;
 }
