@@ -31,19 +31,17 @@ vi dep(N,0);
 int main(){
     ios_base::sync_with_stdio(0);
         cin >> n;
-        app[0] = 0;
+        map<int, int> hash;
         rep1(i,n){
-            cin >> in;
-            app[i] = app[i-1] + in;
+            cin >> j;
+            rep(k,j){
+                hash[++m]=i;
+            }
         }
         cin >> m;
-        rep(j,m){
+        while(m--){
             cin >> k;
-            rep1(i,n){
-                if(k<=app[i]){
-                    cout << i << endl; break;
-                }
-            }
+            cout << hash[k] << endl;
         }
     return 0;
 }
