@@ -38,6 +38,7 @@ int main(){
                 char* cstr=const_cast<char*>(s.c_str());
                 char *token;
                 token = strtok(cstr,"/");
+                if(s[0] == '/')  st.clear();
                 while(token != NULL){
                     if(strcmp(token,"..")){
                              st.pb(token);
