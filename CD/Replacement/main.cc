@@ -41,15 +41,18 @@ int main(){
         while(m--){
             cin >> k >> c;
             if(s[k] == c) goto nochange;
-            s[k] = c;
+
             if(c == '.'){
                 s[k-1] == '.' ? ans++:1;
                 s[k+1] == '.' ? ans++:1;
             }
             else{
+                if(s[k] == '.'){
                 s[k-1] == '.' ? ans--:1;
                 s[k+1] == '.' ? ans--:1;
+                }
             }
+            s[k] = c;
 nochange:
             cout << ans << endl;
         }
