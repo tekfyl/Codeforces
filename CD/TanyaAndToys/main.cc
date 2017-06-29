@@ -43,12 +43,10 @@ int main(){
             else{
                 sum += j;
                 if(sum > m) break;
-                hash[j] = 1;
-                ans++;
                 v.pb(j);
             }
         }
-        cout << ans << endl;
+        cout << v.size() << endl;
         for(auto c:v) cout << c << " ";
     return 0;
 }
