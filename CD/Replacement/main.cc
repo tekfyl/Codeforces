@@ -41,7 +41,6 @@ int main(){
         while(m--){
             cin >> k >> c;
             if(s[k] == c) goto nochange;
-
             if(c == '.'){
                 s[k-1] == '.' ? ans++:1;
                 s[k+1] == '.' ? ans++:1;
