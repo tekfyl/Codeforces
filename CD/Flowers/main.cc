@@ -21,7 +21,7 @@ vi v,q,st;
 int in=0,i=0,j=0,k=0,ans=0;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
-const int N = 2e5+7; 
+int N = 2e5+7; 
 vvi g(N); 
 vi vis(N,0);
 vi app(N,0);
@@ -32,23 +32,19 @@ int main(){
     ios_base::sync_with_stdio(0);
         cin >> t >> k;
         int m = 1e9+7;
-        vi dp(N,0);
-        dp[0] = 1;
-        rep1(i,N-1){
-            dp[i] = dp[i-1];
+        vi dp(N+1,1);
+        rep1(i,N){
             if(i>=k){
                 dp[i] = (dp[i-1] + dp[i-k])%m;
             }
         }
-        vi sum(N);
-        sum[0] = 1;
-        rep1(i,N-1){
-            sum[i] = (sum[i-1]+dp[i-1])%m;
+        vi sum(N+1,1);
+        rep1(i,N){
+            sum[i] = (sum[i-1]+dp[i])%m;
         }
         while(t--){
-            int a,b;
-            cin >> a >> b;
-            ans = sum[b+1] - sum[a];
+            cin >> i >> j;
+            ans = sum[j]-sum[i-1];
             ans<0 ? cout << ans+m:cout << ans;
             cout << endl;
         }
