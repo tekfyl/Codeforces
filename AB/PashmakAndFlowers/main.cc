@@ -17,8 +17,8 @@
 
 using namespace std;
 
-vi v,q,st;
-int in=0,i=0,j=0,k=0,ans=0;
+vll v,q,st;
+ll in=0,i=0,j=0,k=0,ans=0;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
 int N = 2e5+7, M = 2e5+1; 
@@ -35,7 +35,7 @@ int main(){
         i = *mx(all(v)); j = *mn(all(v));
         ll f,g;
         f = count(all(v), i); g = count(all(v), j);
-        if(i == j) f=1,g=1;
+        if(i == j) f=1,g--, g*=ceil(n/2.0);
         cout << i-j << " " << f*g;
     return 0;
 }
