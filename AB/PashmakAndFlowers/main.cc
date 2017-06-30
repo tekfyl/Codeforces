@@ -35,7 +35,7 @@ int main(){
         i = *mx(all(v)); j = *mn(all(v));
         ll f,g;
         f = count(all(v), i); g = count(all(v), j);
-        if(i == j) f=1,g--, g*=ceil(n/2.0);
+        if(i == j) f=1,g--, g*=(n/2.0);
         cout << i-j << " " << f*g;
     return 0;
 }
