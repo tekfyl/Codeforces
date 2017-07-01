@@ -32,17 +32,14 @@ int main(){
         cin >> n >> k >> q;
         rep(i,n){
             cin >> v1 >> v2;
-            for(j=v1; j<=v2; j++){
-                vis[j]++;
-            }
+                vis[v1]++; vis[v2+1]--;
         }
+        rep(i,M) vis[i+1] = vis[i+1] + vis[i];
+        rep(i,M) vis[i] = (vis[i] >= k);
+        rep(i,M) vis[i+1] += vis[i]; 
         rep(i,q){
-            ans = 0;
             cin >> v1 >> v2;
-            for(j=v1; j<=v2; j++){
-                if(vis[j] >= k) ans++;
-            }
-            cout << ans << endl;
+            cout << vis[v2] - vis[v1-1] << endl;
         }
     return 0;
 }
