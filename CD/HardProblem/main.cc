@@ -44,18 +44,10 @@ int main(){
         vector<vector<ll> > dp(n, vector<ll>(2, inf));
         dp[0][0] = 0; dp[0][1] = c[0];
         rep1(i,n-1){
-            if(s[i]>=s[i-1]){
-                dp[i][0] = min(dp[i][0], dp[i-1][0]);
-            }
-            if(s[i]>=r[i-1]){
-                dp[i][0] = min(dp[i][0], dp[i-1][1]);
-            }
-            if(r[i]>=s[i-1]){
-                dp[i][1] = min(dp[i][1], dp[i-1][0] + c[i]);
-            }
-            if(r[i]>=r[i-1]){
-                dp[i][1] = min(dp[i][1], dp[i-1][1] + c[i]);
-            }
+            if(s[i]>=s[i-1]) dp[i][0] = min(dp[i][0], dp[i-1][0]);
+            if(s[i]>=r[i-1]) dp[i][0] = min(dp[i][0], dp[i-1][1]);
+            if(r[i]>=s[i-1]) dp[i][1] = min(dp[i][1], dp[i-1][0] + c[i]);
+            if(r[i]>=r[i-1]) dp[i][1] = min(dp[i][1], dp[i-1][1] + c[i]);
         } 
         ll ans = min(dp[n-1][0], dp[n-1][1]);
         ans == inf ? cout << -1:cout << ans;
