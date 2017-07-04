@@ -31,6 +31,7 @@ char c; string s;
 int main(){
     ios_base::sync_with_stdio(false);
     cin >> n >> s;
+    s += 'W';
     for(auto c:s){
         if(c == 'B') m++;
         else if(m) v.pb(m), m=0;
