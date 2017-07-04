@@ -21,8 +21,8 @@ using namespace std;
 ll inf=1e18+1;  
 int N; 
 vi v,q,st;
-int in=0,i=0,j=0,k=0,ans=0;
-int n=0,m=0,t=0,v1=0,v2=0;
+ll in=0,i=0,j=0,k=0,ans=0;
+ll n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
 
 
@@ -32,7 +32,7 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin >> n >> m;
     ll min=0, max;
-    vi minteam(m,n/m);
+    vll minteam(m,n/m);
     rep(i,n%m){
         minteam[i]++;
     }
