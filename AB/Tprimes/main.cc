@@ -33,12 +33,11 @@ int main(){
     vll v(1e6+7, 1); 
     for(i=2; i*i<1e6+1; i++){
         if(v[i] == 1){
-        for(j=2*i; j<1e6+1; j+=i){
-            v[j] = 0;
-        }
+            for(j=2*i; j<1e6+1; j+=i){
+                v[j] = 0;
+            }
         }
     }
-there:
     map<ll,int> hash;
     for(i=2;i<1e6+2; i++){
         if(v[i]) hash[i*i] = 1;
