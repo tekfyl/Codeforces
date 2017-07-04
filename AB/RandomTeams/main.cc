@@ -32,13 +32,7 @@ int main(){
     ios_base::sync_with_stdio(false);
     cin >> n >> m;
     ll min=0, max;
-    vll minteam(m,n/m);
-    rep(i,n%m){
-        minteam[i]++;
-    }
-    rep(i,m){
-        min += minteam[i]*(minteam[i]-1)/2;
-    }
+    min = (n/m)*(n/m-1)/2*(m-n%m) + (n/m)*(n/m+1)/2*(n%m);
     max = (n-m)*(n-m+1)/2;
     cout << min << " " << max;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
