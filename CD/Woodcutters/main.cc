@@ -40,7 +40,8 @@ int main(){
         if(v[i].fi-v[i-1].fi > v[i].se) ans++;
         else if(v[i+1].fi-v[i].fi > v[i].se) ans++, v[i].fi += v[i].se;
     }
-    cout << ans;
+
+    n == 1? cout << 1:cout << ans;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
