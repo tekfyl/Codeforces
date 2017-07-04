@@ -33,10 +33,9 @@ int main(){
     vi b,g;
     cin >> n; rep(i,n) cin >> in, b.pb(in);
     cin >> m; rep(i,m) cin >> in, g.pb(in);
-    vi visboy(n,0), visgirl(m,0);
     sort(all(b)); sort(all(g));
-    rep(i,n) rep(j,m) if(!visboy[i] && !visgirl[j] && abs(b[i]-g[j])<=1){
-        visboy[i] = visgirl[j] = 1; ans++; break;
+    rep(i,n) rep(j,m) if(abs(b[i]-g[j])<=1){
+        g[j] = 120; ans++; break;
     }
     cout << ans;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
