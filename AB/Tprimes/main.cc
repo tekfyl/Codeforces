@@ -21,7 +21,7 @@ using namespace std;
 ll inf=1e18+1;  
 int N; 
 vi v,q,st;
-int in=0,i=0,j=0,k=0,ans=0;
+ll in=0,i=0,j=0,k=0,ans=0;
 int n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
 
@@ -30,26 +30,26 @@ char c; string s;
 
 int main(){
     ios_base::sync_with_stdio(false);
-    vll v(1e6+7, 0); v[0] = v[1] = 1;
-    for(i=2; i<1e6+1; i++){
-        for(j=i*i; j<1e6+4; j+=i){
-            if(j>1e6+1) goto there;
-            v[j] = 1;
+    vll v(1e6+7, 1); 
+    for(i=2; i*i<1e6+1; i++){
+        if(v[i] == 1){
+        for(j=2*i; j<1e6+1; j+=i){
+            v[j] = 0;
+        }
         }
     }
 there:
     map<ll,int> hash;
-    rep1(i, 1e6+4){
-        if(!v[i]) hash[i*i] = 1;
+    for(i=2;i<1e6+2; i++){
+        if(v[i]) hash[i*i] = 1;
     }
-    cin >> n;    
+    cin >> n;
     rep(i,n){
         ll in;
         cin >> in;
         hash[in] ? cout << "YES" : cout << "NO";
         cout << endl;
     }
-    
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
