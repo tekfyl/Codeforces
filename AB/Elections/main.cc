@@ -39,7 +39,7 @@ int main(){
         rep(i,n) if(city[i] == max){ w[i]++; break; }
     }
     max = *mx(all(w));
-    rep(i,n) if(max == w[i]) {cout << i+1; break; }
+    cout << 1+find(all(w), max)-w.begin();
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
