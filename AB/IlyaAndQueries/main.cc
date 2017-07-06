@@ -30,14 +30,10 @@ char c; string s;
 
 int main(){
     ios_base::sync_with_stdio(false);
-    cin >> s;
-    rep(i,s.size()-1){
-        v.pb(s[i] == s[i+1]);
+    cin >> s; v.resize(s.size());
+    rep1(i,s.size()-1){
+        v[i] = v[i-1] + (s[i] == s[i-1]);
     }
-    v.pb(0);
-    rep1(i,s.size()-1) v[i] += v[i-1];
-    for(auto c:v) cout << c << " ";
-    cout << endl;
     cin >> m;
     rep(i,m){
         int l,r;
