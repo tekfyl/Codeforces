@@ -35,10 +35,10 @@ int main(){
         cin >> s;
         c = s[0];
         if(c == 'T') ans += 4;
-        if(c == 'C') ans += 6;
-        if(c == 'O') ans += 8;
-        if(c == 'D') ans += 12;
-        if(c == 'I') ans += 20;
+        else if(c == 'C') ans += 6;
+        else if(c == 'O') ans += 8;
+        else if(c == 'D') ans += 12;
+        else ans += 20;
     }
     cout << ans;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
