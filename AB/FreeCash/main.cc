@@ -34,7 +34,7 @@ int main(){
     rep(i,n-1){
         cin >> m >> t;
         if(j == m && k == t) in++;
-        else ans = max(ans,in);
+        else in=1,ans = max(ans,in);
         j = m; k = t;
     }
     cout << ans;
