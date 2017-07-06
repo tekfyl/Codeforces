@@ -21,23 +21,25 @@ using namespace std;
 ll inf=1e18+1;  
 ll N; 
 vll v,q,st;
-ll in=0,i=0,j=0,k=0,ans=1;
+ll in=0,i=0,j=0,k=0,ans=0;
 ll n=0,m=0,t=0,v1=0,v2=0;
 char c; string s;
+
 
 
 
 int main(){
     ios_base::sync_with_stdio(false);
     cin >> n;
-    cin >> j >> k; in=1;
-    rep(i,n-1){
-        cin >> m >> t;
-        if(j == m && k == t) in++;
-        else ans = max(ans,in), in=1;
-        j = m; k = t;
+    rep(i,n){
+        cin >> s;
+        c = s[0];
+        if(c == 'T') ans += 4;
+        if(c == 'C') ans += 6;
+        if(c == 'O') ans += 8;
+        if(c == 'D') ans += 12;
+        if(c == 'I') ans += 20;
     }
-    ans = max(ans, in);
     cout << ans;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
