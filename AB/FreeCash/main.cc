@@ -30,10 +30,11 @@ char c; string s;
 int main(){
     ios_base::sync_with_stdio(false);
     cin >> n;
-    cin >> j >> k;
+    cin >> j >> k; in=1;
     rep(i,n-1){
         cin >> m >> t;
-        if(j == m && k == t) ans++;
+        if(j == m && k == t) in++;
+        else ans = max(ans,in);
         j = m; k = t;
     }
     cout << ans;
