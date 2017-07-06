@@ -45,9 +45,12 @@ int main(){
         g[i] = g[2*n-i];
     }
     for(auto d:g){
+        m=0;
         for(auto c:d){
             if(c < 0) cout << " ";
             else cout << c;
+            m++;
+            if(m>n && c==0) break;
             cout << " ";
         }
         cout << endl;
