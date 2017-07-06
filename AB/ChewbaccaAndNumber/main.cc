@@ -31,18 +31,10 @@ char c; string s;
 int main(){
     ios_base::sync_with_stdio(false);
     cin >> s;
-    rep1(i,s.size()-1){
-        s[i] -= '0';
-        if(s[i] > 4){
-            s[i] = 9-s[i];
-        }
-        s[i] += '0';
-    }
-    s[0] -= '0';
-    if(s[0] != 9 && s[0] > 4){
-        s[0] = 9-s[0];
-    }
-    s[0] += '0';
+    for(auto &c:s) c -= '0';
+    rep1(i,s.size()-1) if(s[i] > 4) s[i] = 9-s[i];
+    if(s[0] != 9 && s[0] > 4) s[i] = 9-s[i];
+    for(auto &c:s) c += '0';
     cout << s;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
