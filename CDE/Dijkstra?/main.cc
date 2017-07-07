@@ -30,7 +30,7 @@ map<pair<ll, ll>, ll> w;
 void Dijkstra(){
         s = 1; dis[s] = 0;
         priority_queue<pair<ll, ll>, vector<pair<ll,ll> >, greater<pair<ll,ll> > > q;
-        q.push(pair<ll, ll>(dis[s],s));
+        q.push(mk(dis[s],s));
         while(!q.empty()){
             s = q.top().se; q.pop(); vis[s] = 1;
             for(auto d:g[s]){
@@ -39,7 +39,7 @@ void Dijkstra(){
                     if(dis[d] > t){
                         dis[d] = t;
                         path[d] = s;
-                        q.push(pair<ll,ll>(t,d));
+                        q.push(mk(t,d));
                     }
                 }
             }
