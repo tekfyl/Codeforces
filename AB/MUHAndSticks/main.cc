@@ -33,7 +33,7 @@ int main(){
     rep(i,6) cin >> in, f[in]++;
     m = count(all(f), 0);
     m = 10-m;
-    m == 2 ? cout << "Elephant" : m == 3 ? cout << "Bear" : cout << "Alien";
+    m <= 2 ? cout << "Elephant" : m == 3 ? cout << "Bear" : cout << "Alien";
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
