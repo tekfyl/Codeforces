@@ -32,13 +32,22 @@ int main(){
     cin >> n;
     rep(i,n) cin >> in, v.pb(in);
     rep(i,n-1){
-        if(v[i+1]<v[i]){
-            cout << "no" << endl;
-        }
-        else{
-            
-        }
+        v[i] = v[i+1]-v[i];
     }
+    int i=0;
+    for(i=0; i<n-1; i++){
+        if(v[i] > 0) {}
+        else if(v[i] <= 0) break;
+    }
+    for(j=i; j<n-1; j++){
+        if(v[j] == 0) {}
+        else break;
+    }
+    for(k=j; k<n-1; k++){
+        if(v[k] < 0) {}
+        else { cout << "NO"; return 0; }
+    } 
+    cout << "YES";
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
