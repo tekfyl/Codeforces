@@ -29,32 +29,39 @@ char c; string s;
 
 int main(){
     ios_base::sync_with_stdio(false);
-    ll p;
-    cin >> n >> k >> p;
-    vector<LL > v;
+    cin >> s;
+    map<char,int> look;
+    for(char c:s){
+        look[c] = 1;
+    }
+    string r;
+    cin >> r;
+    cin >> n;
     rep(i,n){
-        cin >> in; v.pb(mk(in,1));
-    }
-    rep(i,k){
-        cin >> in; v.pb(mk(in,0));
-    }
-    sort(all(v));
-    vll ans;
-    rep(i,n+k-1){
-        if(i==0){
-            if(v[i].se == 1){
-                ans.pb(abs(v[1].fi - v[0].fi) + abs(p-v[0].fi));
+start:
+        in = 0; t=-1;
+        getline(cin, s);
+        //cout << s << endl;
+        if(s.empty()) goto start;
+        for(int j=0; j<r.size(); j++){
+            if(r[j] != '?' && r[j] != '*'){
+                if(r[j] != s[j] || j >= s.size()){
+                    cout << "NO" << endl; in = 8; break; 
+                }
+            }
+            else if(r[j] == '?'){
+                if(look[s[j]] == 0) { cout << "NO" << endl; in = 8; break; }
+                else s[j] = r[j];
+            }
+            else if(r[j] == '*'){
+                    t = j;
             }
         }
-        if(v[i].se == 1){
-            t = min(abs(v[i].fi - v[i-1].fi) + abs(p-v[i-1].fi) , abs(v[i+1].fi - v[i].fi) + abs(p-v[i+1].fi));
-            ans.pb(t);
+        if(t != -1){
+            
         }
+        if(in != 8) cout << "YES" << endl;
     }
-    if(v.back().se == 1){
-        ans.pb(abs(v.back().fi - v[n+k-2].fi) + abs(p-v[n+k-2].fi));
-    }
-    cout << *mx(all(ans));
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }

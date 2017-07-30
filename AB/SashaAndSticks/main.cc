@@ -29,32 +29,9 @@ char c; string s;
 
 int main(){
     ios_base::sync_with_stdio(false);
-    ll p;
-    cin >> n >> k >> p;
-    vector<LL > v;
-    rep(i,n){
-        cin >> in; v.pb(mk(in,1));
-    }
-    rep(i,k){
-        cin >> in; v.pb(mk(in,0));
-    }
-    sort(all(v));
-    vll ans;
-    rep(i,n+k-1){
-        if(i==0){
-            if(v[i].se == 1){
-                ans.pb(abs(v[1].fi - v[0].fi) + abs(p-v[0].fi));
-            }
-        }
-        if(v[i].se == 1){
-            t = min(abs(v[i].fi - v[i-1].fi) + abs(p-v[i-1].fi) , abs(v[i+1].fi - v[i].fi) + abs(p-v[i+1].fi));
-            ans.pb(t);
-        }
-    }
-    if(v.back().se == 1){
-        ans.pb(abs(v.back().fi - v[n+k-2].fi) + abs(p-v[n+k-2].fi));
-    }
-    cout << *mx(all(ans));
+    cin >> n >> k;
+    t = n/k;
+    t&1 ? cout << "YES" : cout << "NO";
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
