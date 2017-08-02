@@ -29,9 +29,7 @@ int main(){
     else{
         int t=0;
         while(n != m){
-            if(m%2 == 0 && m>n){
-                m>>=1;
-            }
+            if(m%2 == 0 && m>n) m>>=1;
             else m++;
             t++;
         }
