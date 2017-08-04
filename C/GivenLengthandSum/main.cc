@@ -21,20 +21,34 @@ double tick(){static clock_t oldt,newt=clock();double diff=(newt-oldt)/CLOCKS_PE
 using namespace std;
 
 int main(){
-    int m,s;
-    cin >> m >> s;
-    int t = s/9;
-    int mod = s%9;
-    if(t+1 != m) cout << -1 << " " << -1;
-    else{
-        vi v;
-        v.pb(mod);
-        rep(i,t) v.pb(9);
-        for(int c:v) cout << c;
-        cout << " ";
-        reverse(all(v));
-        for(int c:v) cout << c;
+    int n,m;
+    cin >> n >> m;
+    if(n == 1 && m == 0){
+        cout << "0 0";
+        return 0;
     }
+    if(m < 1 || m>n*9){
+        cout << "-1 -1";
+        return 0;
+    }
+    string s1,s2;
+    rep(i,n){
+        int x = min(9,m);
+        m-=x;
+        s2 += char(x+'0');
+    }
+    s1 = s2;
+    reverse(all(s1));
+    if(s1[0] == '0'){
+        rep(i,n){
+            if(s1[i] > '0'){
+                s1[0]++;
+                s1[i]--;
+                break;
+            }
+        }
+    }
+    cout << s1 << " " << s2;
     //cout<<"\n"<<"Execution time : "<<tick()<<"\n";
     return 0;
 }
